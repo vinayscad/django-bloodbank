@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Donor</title>
+</head>
+<body>
+
+<h2>Edit Donor</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    Name:
+    <input type="text" name="name" value="{{ donor.name }}"><br><br>
+
+    Blood Group:
+    <input type="text" name="blood_group" value="{{ donor.blood_group }}"><br><br>
+
+    Age:
+    <input type="number" name="age" value="{{ donor.age }}"><br><br>
+
+    Phone:
+    <input type="text" name="phone" value="{{ donor.phone }}"><br><br>
+
+    City:
+    <input type="text" name="city" value="{{ donor.city }}"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+<a href="{% url 'donor_list' %}">⬅ Back</a>
+
+</body>
+</html>

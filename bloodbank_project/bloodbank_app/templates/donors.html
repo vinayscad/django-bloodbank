@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Donors</title>
+</head>
+<body>
+
+<h1>Blood Donor List</h1>
+
+<a href="{% url 'add_donor' %}">➕ Add Donor</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Name</th>
+        <th>Blood Group</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Action</th>
+    </tr>
+
+    {% for donor in donors %}
+    <tr>
+        <td>{{ donor.name }}</td>
+        <td>{{ donor.blood_group }}</td>
+        <td>{{ donor.age }}</td>
+        <td>{{ donor.phone }}</td>
+        <td>{{ donor.city }}</td>
+        <td>
+            <a href="{% url 'edit_donor' donor.id %}">✏ Edit</a>
+            |
+            <a href="{% url 'delete_donor' donor.id %}"
+               onclick="return confirm('Delete this donor?')">🗑 Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

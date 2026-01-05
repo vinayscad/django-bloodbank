@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Donor</title>
+</head>
+<body>
+
+<h2>Add Blood Donor</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    Name: <input type="text" name="name"><br><br>
+    Blood Group: <input type="text" name="blood_group"><br><br>
+    Age: <input type="number" name="age"><br><br>
+    Phone: <input type="text" name="phone"><br><br>
+    City: <input type="text" name="city"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'donor_list' %}">⬅ Back</a>
+
+</body>
+</html>
